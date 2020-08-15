@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Pursuit of Happyness</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <!-- Slick CSS -->
+  <link rel="stylesheet" type="text/css" href="../static/slick/slick.css"/>
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!--link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/journal/bootstrap.min.css" rel="stylesheet" integrity="sha384-vjBZc/DqIqR687k5rf6bUQ6IVSOxQUi9TcwtvULstA7+YGi//g3oT2qkh8W1Drx9" crossorigin="anonymous"-->
+</head>
+<body>
+
+  <!--Adding Nav Bar-->
+  <!--Adding Latitude as Home screen link-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbarmar">
+    <a class="navbar-brand" href="/" ><div class="p-2  bg-info text-white">HP</div></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!--Adding other nav bar menus-->
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class = "navbar-nav ml-auto navbar-right">
+              
+              <li class="nav-item">
+                <a class="nav-link" href="/geojson">MPLS Geo Map</a>
+            </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/mpls_deepdive">MPLS Deep Dive</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/cluster">Use of Force Cluster</a>
+            </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/inference">Inference</a>
+              </li>
+        </ul>
+      </div>
+  </nav>
+  <!--End of Nav Bar-->
+
+  <!--Adding cointainer for Data & Visualization-->
+  <div class="container-fluid  p-5"  >
+    <div class="row" class="mx-auto">
+
+      <!--First Column in this Row-->
+      <div class="col-md-9 mb-3">
+        <div class="box div-box">       
+        <h4 class="text-info font-weight-bold">The Pursuit of Happyness</h4>
+        <hr class="my-4">        
+          <div>
+            <!-- <iframe width='100%' height='520' frameborder='0' src='https://samswey.carto.com/viz/e1005588-93d2-47b6-9a61-f4c0ed001163/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe> -->
+            <div class="slider">
+              <div>
+                <img src="../static/img/images_1.jpg" class="img-fluid" alt="A memorial to George Floyd">
+              </div>
+              <div>
+                <img src="../static/img/images_2.jpg" class="img-fluid" alt="Armed Police Officer at the Ready">
+              </div>
+              <div>
+                <img src="../static/img/images_3.jpg" class="img-fluid" alt="Police Stand over Arrested Protestors">
+              </div>
+              <div>
+                <img src="../static/img/images_4.jpeg" class="img-fluid" alt="Protestors March in Minneapolis">
+              </div>
+              <div>
+                <img src="../static/img/images_5.jpg" class="img-fluid" alt="Police Officers Using Force against a Man">
+              </div>
+              <div>
+                <img src="../static/img/images_6.jpg" class="img-fluid" alt="Protestors Cheering in the Rain">
+              </div>
+            </div>
+            <!--p><img src="Resources\assets\visualizations\1-City_Lat-v-Max_Temp.png" 
+            style="margin: 0px 3%" class="one img-thumbnail rounded float-left img-fluid"></p-->      
+            <br>
+            <h5 class="text-info font-weight-bold">Background:</h5>
+            <p class="card-text text-justify" style="padding-left: 2%;">
+              For 8 minutes and 46 seconds, Derek Chauvin pressed his knee into the neck of George Floyd, 
+              an use of force by the now-former Minneapolis police officer has reinvigorated a very public debate 
+              about police brutality and racism.</p>
+            
+            <p class="card-text text-justify" style="padding-left: 2%;">
+              The very systems that have been built to improve the systems of the past remain 
+              oppressive in many ways. The police force and real estate are two examples of systems 
+              continuing to oppress people of color in particular. Living in Minneapolis through the 
+              murder of George Floyd was an experience that lead us to analyze these two systems in 
+              Minneapolis further. In this website, we analyze Minneapolis, its neighborhoods, 
+              its demographics and police use of force.</p>
+
+            <h5 class="text-info font-weight-bold">Project Objective:</h5>
+            <p class="card-text text-justify" style="padding-left: 2%;">To facilitate an analysis of the relationship 
+              between police incidents, the use of force by police in those incidents, and the demographic characteristics 
+              of the neighborhood in which the incidents occurred such as race and income.</p>
+            
+              <h5 class="text-info font-weight-bold">Data Sources:</h5>
+              <p class="card-text text-justify" style="padding-left: 2%;">
+            1. Police incident data by neighborhood - Minneapolis Open Data<br>
+            2. Police “use of force” data by neighborhood - Minneapolis Open Data<br>
+            3. Household Income levels by neighborhood - Web Scraping from MN Atlas<br>
+            4. Race distribution by neighborhood - Web Scraping from MN Atlas<br>
+            5. Geojsons for Minneapolis neighborhoods and police use of force <br>
+          </p>
+            
+          <h5 class="text-info font-weight-bold">  Data Munging Techniques:</h5>
+              <p class="card-text text-justify" style="padding-left: 2%;">
+          
+            1. ETL - Extracted, transformed and loaded data to Postgres via Pandas<br>
+            2. Built as Flask app to pull data from database and render it to the website<br>
+            3. Analysis of data in Python and R to run statistical tests and find corelations between different datasets<br>
+            4. Visualization - Used a combination rest API, HTML/CSS, Javascript(D3.js, Leaflet, Plotly), 
+            and dynamic page rendering from Postgres<br>
+            5. Deployment - Heroku was used to deploy the website<br>
+            6. Additional js library: Slick was used to create the carosel in the home page
+            </p>
+
+
+          </div> 
+        
+        <!--End of first box-->
+        </div>
+
+      <!--End of first column-->
+      </div> 
+
+    <!--Second Column in this Row-->
+    
+
+     <!--Create a dropdown menu for user to select a neighborhood & return form input to the app-->
+     <!--div class="col-md-3">
+        <div class="box div-box">  
+        <h5 class="text-info font-weight-bold text-center"><i class='fas fa-chart-line' style='color:#00acc1'></i> Learn more about your Neighborhood</h5>
+        <hr class="my-4">    
+          <div class="row" class="mx-auto" >
+           
+          <form name="neighborhood" action="/" method="POST">
+
+            <select name="neighborhood" method="GET" action="/" style="margin-left: 7%">
+              <option value="{{neighborhood[0].name}}" selected>{{neighborhood[0].name}}</option>
+              {% for n in neighborhood[1:]: %}
+                <option value="{{n.name}}">{{n.name}}</option>
+              {% endfor %}
+
+            </select>
+            <br><br>
+            <p id="submission"><button type="Submit" style="margin-left: 20%">Search</button></p>
+            </form>
+
+            </div> 
+        <End of second box>
+        </div>
+      <End of second column> 
+      </div--> 
+
+    
+    <!--End of row-->
+    </div>
+  
+  <!--End of container-->
+  </div>
+
+ <!-- Footer -->
+
+  <div class="panel-footer panel-custom bg-dark py-2 text-center">
+    © Copyright Coding BootCamp 2020
+  </div>
+
+  <!-- End of Footer -->
+
+<!--script src="../static/js/neighborhood-force.js"></script-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<!-- slick -->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="../static/slick/slick.min.js"></script>
+<script type="text/javascript" src="../static/js/slick_init.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+
+</body>
+
+</html>
