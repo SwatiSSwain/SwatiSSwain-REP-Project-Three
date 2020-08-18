@@ -5,6 +5,7 @@ from sqlalchemy import create_engine
 import json
 #from flask_sqlalchemy import SQLAlchemy
 import os
+import model_randomforest
 #################################################
 # Flask Setup
 #################################################
@@ -65,6 +66,16 @@ def happyreport():
     columns = [col[0] for col in cur.description]
     happy_rpt = [dict(zip(columns, row)) for row in cur.fetchall()]
     return jsonify(happy_rpt) 
+
+@app.route("/predict-happiness")
+def predict():
+    
+    return render_template("predict-happiness.html")
+
+@app.route("/predict")
+def predict():
+    data = model_randomforest.predict()
+    return redirect("/", code=302)
 
 
 
