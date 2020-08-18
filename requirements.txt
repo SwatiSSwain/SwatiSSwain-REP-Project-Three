@@ -23,7 +23,7 @@ idna==2.9
 #ipykernel @ file:///C:/ci/ipykernel_1596206775157/work/dist/ipykernel-5.3.4-py3-none-#any.whl
 #ipython @ file:///C:/ci/ipython_1593446240034/work
 ipython-genutils==0.2.0
-jedi @ file:///C:/ci/jedi_1596472773465/work
+#jedi @ file:///C:/ci/jedi_1596472773465/work
 joblib==0.15.1
 #jupyter-client @ file:///tmp/build/80754af9/jupyter_client_1594826976318/work
 jupyter-core==4.6.3
