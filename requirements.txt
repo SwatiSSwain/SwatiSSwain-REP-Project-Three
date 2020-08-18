@@ -44,7 +44,7 @@ parso==0.7.0
 pickleshare==0.7.5
 Pillow==7.2.0
 prompt-toolkit==3.0.5
-protobuf==3.12.3
+#protobuf==3.12.3
 psycopg2==2.8.5
 py4j==0.10.7
 pyasn1==0.4.8
