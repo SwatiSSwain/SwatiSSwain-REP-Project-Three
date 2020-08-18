@@ -1,0 +1,152 @@
+select hi.* , c.happiness_rank_2015
+,CASE WHEN happiness_rank_2015 <=32 THEN 'Extremely Happy'
+WHEN happiness_rank_2015 >32 AND happiness_rank_2015 <= 64 THEN 'Moderately Happy'
+WHEN happiness_rank_2015 >64 AND happiness_rank_2015 <= 96 THEN 'Apathetic'
+WHEN happiness_rank_2015 >96 AND happiness_rank_2015 <= 128 THEN 'Moderately Sad'
+WHEN happiness_rank_2015 >128 THEN 'Very Sad'
+END AS target_groups
+--distinct indicatorname, count(1)
+ --country, count(1)
+ into happiness_indicators_final
+from happiness_indicators hi
+--join country_code c
+--on hi.countrycode = c.countrycode
+ join happiness_report c
+on hi.countryname = c.country
+where 
+--c.country is null and
+year = 2014 and
+indicatorname in
+(
+
+'Fixed telephone subscriptions (per 100 people)',
+'Foreign direct investment, net inflows (% of GDP)',
+'GDP growth (annual %)',
+'Rural population (% of total population)',
+'Urban population',
+'Urban population (% of total)',
+'Urban population growth (annual %)',
+'Fixed telephone subscriptions',
+'Fixed telephone subscriptions (per 100 people)',
+'Diabetes prevalence (% of population ages 20 to 79)',
+'Incidence of tuberculosis (per 100,000 people)',
+'Inflation, consumer prices (annual %)',
+'Inflation, GDP deflator (annual %)',
+'Internet users (per 100 people)',
+'Labor force, female (% of total labor force)',
+'Lifetime risk of maternal death (%)',
+'Maternal mortality ratio (modeled estimate, per 100,000 live births)',
+'Urban population',
+'Urban population (% of total)',
+'Urban population growth (annual %)',
+'Unemployment, male (% of male labor force)',
+'Unemployment, female (% of female labor force)',
+'Population, ages 15-64 (% of total)',
+'Population, ages 0-14 (% of total)',
+'Population growth (annual %)',
+'Mobile cellular subscriptions (per 100 people)',
+'Mortality rate, infant (per 1,000 live births)',
+'Mortality rate, under-5 (per 1,000)',
+'Physicians (per 1,000 people)',
+'Population ages 65 and above (% of total)',
+'Population growth (annual %)',
+'Population, ages 0-14 (% of total)'
+)
+and country <> 'Kosovo'
+--group by country
+order by 1 -- 2 desc  --1 --,3
+
+select * from happiness_indicators where indicatorname like '%Physicians%' and year = 2015
+
+select distinct country from happiness_indicators hi
+right join happiness_report_2019 c
+on hi.countryname = c.country
+where 
+hi.countryname is null
+order  by 1
+
+
+
+update happiness_indicators set countryname ='Congo (Brazzaville)' where countryname ='Congo, Rep.';
+update happiness_indicators set countryname ='Congo (Kinshasa)' where countryname ='Congo, Dem. Rep.';
+update happiness_indicators set countryname ='Egypt' where countryname ='Egypt, Arab Rep.';
+update happiness_indicators set countryname ='Gambia' where countryname ='Gambia, The';
+update happiness_indicators set countryname ='Hong Kong' where countryname ='Hong Kong SAR, China';
+update happiness_indicators set countryname ='Iran' where countryname ='Iran, Islamic Rep.';
+
+update happiness_indicators set countryname ='Kyrgyzstan' where countryname ='Kyrgyz Republic';
+update happiness_indicators set countryname ='Laos' where countryname ='Lao PDR';
+update happiness_indicators set countryname ='North Macedonia' where countryname ='Macedonia, FYR';
+
+update happiness_indicators set countryname ='Russia' where countryname ='Russian Federation';
+update happiness_indicators set countryname ='Slovakia' where countryname ='Slovak Republic';
+update happiness_indicators set countryname ='South Korea' where countryname ='Korea, Rep.';
+update happiness_indicators set countryname ='Syria' where countryname ='Syrian Arab Republic';
+
+update happiness_indicators set countryname ='Trinidad & Tobago' where countryname ='Trinidad and Tobago';
+update happiness_indicators set countryname ='Venezuela' where countryname ='Venezuela, RB';
+update happiness_indicators set countryname ='Yemen' where countryname ='Yemen, Rep.';
+
+
+
+
+
+CREATE TABLE happiness_indicators_all_years
+(
+    countryname varchar(255)  default null,
+    countrycode varchar(100)  default null,
+    indicatorname varchar(500)  default null,
+    indicatorcode varchar(255)  default null,
+    year_2014 numeric(30,10) default null,
+    year_2015 numeric(30,10) default null,
+	year_2016 numeric(30,10) default null,
+	year_2017 numeric(30,10) default null,
+	year_2018 numeric(30,10) default null,
+	year_2019 numeric(30,10) default null
+)
+
+select countryname, count(year_2014) as count_2014, count(year_2015)
+,count(year_2016), count(year_2017),
+count(year_2018), count(year_2019)
+
+select distinct indicatorname
+from happiness_indicators_all_years
+where indicatorname in
+(
+
+'Fixed telephone subscriptions (per 100 people)',
+'Foreign direct investment, net inflows (% of GDP)',
+'GDP growth (annual %)',
+'Rural population (% of total population)',
+'Urban population',
+'Urban population (% of total)',
+'Urban population growth (annual %)',
+'Fixed telephone subscriptions',
+'Fixed telephone subscriptions (per 100 people)',
+'Diabetes prevalence (% of population ages 20 to 79)',
+'Incidence of tuberculosis (per 100,000 people)',
+'Inflation, consumer prices (annual %)',
+'Inflation, GDP deflator (annual %)',
+'Internet users (per 100 people)',
+'Labor force, female (% of total labor force)',
+'Lifetime risk of maternal death (%)',
+'Maternal mortality ratio (modeled estimate, per 100,000 live births)',
+'Urban population',
+'Urban population (% of total)',
+'Urban population growth (annual %)',
+'Unemployment, male (% of male labor force)',
+'Unemployment, female (% of female labor force)',
+'Population, ages 15-64 (% of total)',
+'Population, ages 0-14 (% of total)',
+'Population growth (annual %)',
+'Mobile cellular subscriptions (per 100 people)',
+'Mortality rate, infant (per 1,000 live births)',
+'Mortality rate, under-5 (per 1,000)',
+'Physicians (per 1,000 people)',
+'Population ages 65 and above (% of total)',
+'Population growth (annual %)',
+'Population, ages 0-14 (% of total)'
+)
+
+group by countryname
+order by 2 desc

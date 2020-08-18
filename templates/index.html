@@ -11,12 +11,14 @@
 
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <!--link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/journal/bootstrap.min.css" rel="stylesheet" integrity="sha384-vjBZc/DqIqR687k5rf6bUQ6IVSOxQUi9TcwtvULstA7+YGi//g3oT2qkh8W1Drx9" crossorigin="anonymous"-->
+  <!--link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/journal/bootstrap.min.css" rel="stylesheet" integrity="sha384-vjBZc/DqIqR687k5rf6bUQ6IVSOxQUi9TcwtvULstA7+YGi//g3oT2qkh8W1Drx9" crossorigin="anonymous"-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/pulse/bootstrap.min.css" integrity="sha384-L7+YG8QLqGvxQGffJ6utDKFwmGwtLcCjtwvonVZR/Ba2VzhpMwBz51GaXnUsuYbj" crossorigin="anonymous">
 </head>
 <body>
 
   <!--Adding Nav Bar-->
   <!--Adding Latitude as Home screen link-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbarmar">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="/" ><div class="p-2  bg-info text-white">HP</div></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,14 +30,17 @@
         <ul class = "navbar-nav ml-auto navbar-right">
               
               <li class="nav-item">
-                <a class="nav-link" href="/geojson">MPLS Geo Map</a>
+                <a class="nav-link" href="/geojson">World Happiness Map</a>
             </li>
               <li class="nav-item">
-                  <a class="nav-link" href="/mpls_deepdive">MPLS Deep Dive</a>
+                  <a class="nav-link" href="/mpls_deepdive">Predict Happiness</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/cluster">Use of Force Cluster</a>
+                <a class="nav-link" href="/cluster">Happiness Indicators</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cluster">Happiness Deep Dive</a>
+          </li>
               <li class="nav-item">
                   <a class="nav-link" href="/inference">Inference</a>
               </li>
@@ -118,9 +123,10 @@
             6. Additional js library: Slick was used to create the carosel in the home page
             </p>
 
-
+          
           </div> 
-        
+
+
         <!--End of first box-->
         </div>
 
@@ -165,7 +171,7 @@
 
  <!-- Footer -->
 
-  <div class="panel-footer panel-custom bg-dark py-2 text-center">
+  <div class="panel-footer panel-custom bg-primary py-2 text-center">
     © Copyright Coding BootCamp 2020
   </div>
 
