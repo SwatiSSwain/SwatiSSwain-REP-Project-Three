@@ -20,7 +20,7 @@ google-pasta==0.2.0
 grpcio==1.27.2
 h5py==2.10.0
 idna==2.9
-ipykernel @ file:///C:/ci/ipykernel_1596206775157/work/dist/ipykernel-5.3.4-py3-none-any.whl
+#ipykernel @ file:///C:/ci/ipykernel_1596206775157/work/dist/ipykernel-5.3.4-py3-none-#any.whl
 ipython @ file:///C:/ci/ipython_1593446240034/work
 ipython-genutils==0.2.0
 jedi @ file:///C:/ci/jedi_1596472773465/work
