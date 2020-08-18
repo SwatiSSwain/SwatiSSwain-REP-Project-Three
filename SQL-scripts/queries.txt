@@ -150,3 +150,39 @@ where indicatorname in
 
 group by countryname
 order by 2 desc
+
+
+
+
+
+
+CREATE TABLE happiness_report
+(
+Country	 VARCHAR(255),
+Happiness_Score_2015 DECIMAL(4,3),	
+Happiness_Rank_2015 INT,
+Happiness_Score_2016 DECIMAL(4,3),	
+Happiness_Rank_2016 INT,
+Happiness_Score_2017 DECIMAL(4,3),	
+Happiness_Rank_2017 INT,	
+Happiness_Score_2018 DECIMAL(4,3),
+Happiness_Rank_2018 INT,	
+Happiness_Score_2019 DECIMAL(4,3),	
+Happiness_Rank_2019 INT
+)
+
+select * from happiness_report
+
+select * from happiness_indicators_final
+
+truncate table happiness_indicators_final
+
+CREATE TABLE public.happiness_indicators_final
+(
+    countryname varchar(255)  default null,
+    indicatorname varchar(500)  default null,
+    value numeric(30,10) default null,
+    target_groups varchar(255) default null
+)
+
+select * from forest_importance

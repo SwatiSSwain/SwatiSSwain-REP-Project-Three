@@ -124,3 +124,13 @@ img.imageAnchor {
   opacity: 1;
 }
 
+
+fieldset {
+ 
+  border: 5px solid blue;
+}
+legend {
+  padding: 10px;
+  
+  color: cyan;
+}

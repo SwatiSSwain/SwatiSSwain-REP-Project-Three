@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Pursuit of Happyness</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <!-- Slick CSS -->
+  <link rel="stylesheet" type="text/css" href="../static/slick/slick.css"/>
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!--link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/journal/bootstrap.min.css" rel="stylesheet" integrity="sha384-vjBZc/DqIqR687k5rf6bUQ6IVSOxQUi9TcwtvULstA7+YGi//g3oT2qkh8W1Drx9" crossorigin="anonymous"-->
+  <!--link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/journal/bootstrap.min.css" rel="stylesheet" integrity="sha384-vjBZc/DqIqR687k5rf6bUQ6IVSOxQUi9TcwtvULstA7+YGi//g3oT2qkh8W1Drx9" crossorigin="anonymous"-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/pulse/bootstrap.min.css" integrity="sha384-L7+YG8QLqGvxQGffJ6utDKFwmGwtLcCjtwvonVZR/Ba2VzhpMwBz51GaXnUsuYbj" crossorigin="anonymous">
+</head>
+<body>
+
+  <!--Adding Nav Bar-->
+  <!--Adding Latitude as Home screen link-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/" ><div class="p-2  bg-success text-white">PH</div></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!--Adding other nav bar menus-->
+    <div class="collapse navbar-collapse" id="navbarNavDropdown" >
+        <ul class = "navbar-nav ml-auto navbar-right">
+              
+              <li class="nav-item">
+                <a class="nav-link" href="/geojson">World Happiness Map</a>
+            </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/predict-happiness">Predict Happiness</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/cluster">Happiness Indicators</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cluster">Happiness Deep Dive</a>
+          </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/inference">Inference</a>
+              </li>
+        </ul>
+      </div>
+  </nav>
+  <!--End of Nav Bar-->
+
+  <!--Adding cointainer for Data & Visualization-->
+  <div class="container-fluid  p-5"  >
+    <div class="row" class="mx-auto">
+
+      <!--First Column in this Row-->
+      <div class="col-md-12">
+        <div class="box div-box">       
+        <h4 class="text-info font-weight-bold">Happiness Prediction Model</h4>
+        <hr class="my-4">  
+              
+          <div>
+                
+           <p class="card-text text-justify" style="padding-left: 2%;">
+              The Happiness Prediction models takes user selected socio-economic indicators as predictors and runs 
+            predictive models (Random Forest and SVN) to determine their relative importance in predicting happiness.</p>           
+            
+          </div> 
+        </div>
+      </div>
+
+          <div class="col-md-8 mb-3">
+          <div class="box div-box">
+          <fieldset>
+            
+            <div class="card border-secondary mb-3" style="max-width: 45rem;">
+              <div class="card-header"><legend>Select your predictors</legend></div>
+              <div class="card-body">
+
+            <div class="form-group">
+              <button id="selectall" type="button" class="btn btn-default action-button shiny-bound-input">Select All/Deselect All</button>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Birth rate, crude (per 1,000 people)" name="predictor" value="Birth rate, crude (per 1,000 people)" checked>
+              <label for="Birth rate, crude (per 1,000 people)">Birth rate, crude (per 1,000 people)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Employment in agriculture (% of total employment) (modeled ILO estimate)" name="predictor" value="Employment in agriculture (% of total employment) (modeled ILO estimate)" checked>
+              <label for="Employment in agriculture (% of total employment) (modeled ILO estimate)">Employment in agriculture (% of total employment) (modeled ILO estimate)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Employment in agriculture, female (% of female employment) (modeled ILO estimate)" name="predictor" value="Employment in agriculture, female (% of female employment) (modeled ILO estimate)" checked>
+              <label for="Employment in agriculture, female (% of female employment) (modeled ILO estimate)">Employment in agriculture, female (% of female employment) (modeled ILO estimate)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Employment in industry, female (% of female employment) (modeled ILO estimate)" name="predictor" value="Employment in industry, female (% of female employment) (modeled ILO estimate)" checked>
+              <label for="Employment in industry, female (% of female employment) (modeled ILO estimate)">Employment in industry, female (% of female employment) (modeled ILO estimate)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Employment in services, female (% of female employment) (modeled ILO estimate)" name="predictor" value="Employment in services, female (% of female employment) (modeled ILO estimate)" checked>
+              <label for="Employment in services, female (% of female employment) (modeled ILO estimate)">Employment in services, female (% of female employment) (modeled ILO estimate)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Employment to population ratio, 15+, male (%) (modeled ILO estimate)" name="predictor" value="Employment to population ratio, 15+, male (%) (modeled ILO estimate)" checked>
+              <label for="Employment to population ratio, 15+, male (%) (modeled ILO estimate)">Employment to population ratio, 15+, male (%) (modeled ILO estimate)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Fixed telephone subscriptions (per 100 people)" name="predictor" value="Fixed telephone subscriptions (per 100 people)" checked>
+              <label for="Fixed telephone subscriptions (per 100 people)">Fixed telephone subscriptions (per 100 people)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="GDP per capita (current US$)" name="predictor" value="GDP per capita (current US$)" checked>
+              <label for="GDP per capita (current US$)">GDP per capita (current US$)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="GDP per capita growth (annual %)" name="predictor" value="GDP per capita growth (annual %)" checked>
+              <label for="GDP per capita growth (annual %)">GDP per capita growth (annual %)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Incidence of tuberculosis (per 100,000 people)" name="predictor" value="Incidence of tuberculosis (per 100,000 people)" checked>
+              <label for="Incidence of tuberculosis (per 100,000 people)">Incidence of tuberculosis (per 100,000 people)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Individuals using the Internet (% of population)" name="predictor" value="Individuals using the Internet (% of population)" checked>
+              <label for="Individuals using the Internet (% of population)">Individuals using the Internet (% of population)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Labor force participation rate, total (% of total population ages 15+) (modeled ILO estimate)" name="predictor" value="Labor force participation rate, total (% of total population ages 15+) (modeled ILO estimate)" checked>
+              <label for="Labor force participation rate, total (% of total population ages 15+) (modeled ILO estimate)">Labor force participation rate, total (% of total population ages 15+) (modeled ILO estimate)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Life expectancy at birth, female (years)" name="predictor" value="Life expectancy at birth, female (years)" checked>
+              <label for="Life expectancy at birth, female (years)">Life expectancy at birth, female (years)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Life expectancy at birth, male (years)" name="predictor" value="Life expectancy at birth, male (years)" checked>
+              <label for="Life expectancy at birth, male (years)">Life expectancy at birth, male (years)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Life expectancy at birth, total (years)" name="predictor" value="Life expectancy at birth, total (years)" checked>
+              <label for="Life expectancy at birth, total (years)">Life expectancy at birth, total (years)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Lifetime risk of maternal death (%)" name="predictor" value="Lifetime risk of maternal death (%)" checked>
+              <label for="Lifetime risk of maternal death (%)">Lifetime risk of maternal death (%)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Mobile cellular subscriptions (per 100 people)" name="predictor" value="Mobile cellular subscriptions (per 100 people)" checked>
+              <label for="Mobile cellular subscriptions (per 100 people)">Mobile cellular subscriptions (per 100 people)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Mortality rate, infant (per 1,000 live births)" name="predictor" value="Mortality rate, infant (per 1,000 live births)" checked>
+              <label for="Mortality rate, infant (per 1,000 live births)">Mortality rate, infant (per 1,000 live births)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Net migration" name="predictor" value="Net migration" checked>
+              <label for="Net migration">Net migration</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Rural population (% of total population)" name="predictor" value="Rural population (% of total population)" checked>
+              <label for="Rural population (% of total population)">Rural population (% of total population)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Secure Internet servers (per 1 million people)" name="predictor" value="Secure Internet servers (per 1 million people)" checked>
+              <label for="Secure Internet servers (per 1 million people)">Secure Internet servers (per 1 million people)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Survival to age 65, female (% of cohort)" name="predictor" value="Survival to age 65, female (% of cohort)" checked>
+              <label for="Survival to age 65, female (% of cohort)">Survival to age 65, female (% of cohort)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Survival to age 65, male (% of cohort)" name="predictor" value="Survival to age 65, male (% of cohort)" checked>
+              <label for="Survival to age 65, male (% of cohort)">Survival to age 65, male (% of cohort)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Tuberculosis case detection rate (%, all forms)" name="predictor" value="Tuberculosis case detection rate (%, all forms)" checked>
+              <label for="Tuberculosis case detection rate (%, all forms)">Tuberculosis case detection rate (%, all forms)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="checkbox" id="Urban population (% of total population)" name="predictor" value="Urban population (% of total population)" checked>
+              <label for="Urban population (% of total population)">Urban population (% of total population)</label>
+            </div>
+          </div>
+        
+        </div></div>
+          </fieldset>   
+        
+        <!--End of first box-->
+        </div>
+        
+        <!--End of first column-->
+        </div>
+
+        <!--Second Column in this Row-->
+      <div class="col-md-3">
+        <button type="button" class="btn btn-primary btn-lg btn-block">Run Predictive Model</button>
+      </div>
+
+    
+     <!--Create a dropdown menu for user to select a neighborhood & return form input to the app-->
+     <!--div class="col-md-3">
+        <div class="box div-box">  
+        <h5 class="text-info font-weight-bold text-center"><i class='fas fa-chart-line' style='color:#00acc1'></i> Learn more about your Neighborhood</h5>
+        <hr class="my-4">    
+          <div class="row" class="mx-auto" >
+           
+          <form name="neighborhood" action="/" method="POST">
+
+            <select name="neighborhood" method="GET" action="/" style="margin-left: 7%">
+              <option value="{{neighborhood[0].name}}" selected>{{neighborhood[0].name}}</option>
+              {% for n in neighborhood[1:]: %}
+                <option value="{{n.name}}">{{n.name}}</option>
+              {% endfor %}
+
+            </select>
+            <br><br>
+            <p id="submission"><button type="Submit" style="margin-left: 20%">Search</button></p>
+            </form>
+
+            </div> 
+        <End of second box>
+        </div>
+      <End of second column> 
+      </div--> 
+
+    
+    <!--End of row-->
+    </div>
+  
+  <!--End of container-->
+  </div>
+
+ <!-- Footer -->
+
+  <div class="panel-footer panel-custom bg-primary py-2 text-center">
+    © Copyright Coding BootCamp 2020
+  </div>
+
+  <!-- End of Footer -->
+
+  <script>$(".selectall").on("click", function() {
+    $(".predictor").prop("checked", $(this).prop("checked"));
+});</script>
+
+<!--script src="../static/js/neighborhood-force.js"></script-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<!-- slick -->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="../static/slick/slick.min.js"></script>
+<script type="text/javascript" src="../static/js/slick_init.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+
+</body>
+
+</html>
