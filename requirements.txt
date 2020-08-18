@@ -66,7 +66,7 @@ pyzmq==19.0.1
 requests-oauthlib==1.3.0
 rsa==4.0
 #scikit-learn @ file:///C:/ci/scikit-learn_1592853528256/work
-scipy @ file:///C:/ci/scipy_1592930618155/work
+#scipy @ file:///C:/ci/scipy_1592930618155/work
 six==1.15.0
 sklearn==0.0
 SQLAlchemy==1.3.18
