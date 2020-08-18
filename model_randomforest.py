@@ -15,7 +15,6 @@ import os
 # SQL Alchemy
 from sqlalchemy import create_engine
 
-
 # In[3]:
 
 
@@ -124,9 +123,9 @@ def predict():
     # In[18]:
 
 
-    clf = tree.DecisionTreeClassifier()
-    clf = clf.fit(X_train, y_train)
-    clf.score(X_test, y_test)
+    #clf = tree.DecisionTreeClassifier()
+    #clf = clf.fit(X_train, y_train)
+    #clf.score(X_test, y_test)
 
 
     # In[19]:
@@ -155,8 +154,8 @@ def predict():
     importances = pd.DataFrame.from_dict(feats, orient='index').rename(columns={0: 'Gini-importance'})
     importances.sort_values(by='Gini-importance').plot(kind='bar')#, rot=45)
     # Save the figure
-    plt.savefig("../rf-graph.png")
-    plt.show()
+    plt.savefig("rf-graph.png")
+    #plt.show()
 
 
     # In[22]:
@@ -184,9 +183,9 @@ def predict():
     # In[23]:
 
 
-    from graphviz import Source
-    from sklearn import tree
-    Source(tree.export_graphviz(clf, out_file=None, feature_names=data.columns))
+    #from graphviz import Source
+    #from sklearn import tree
+    #Source(tree.export_graphviz(rf, out_file=None, feature_names=data.columns))
 
 
     # In[24]:
@@ -204,12 +203,13 @@ def predict():
     #with open('rf-model.sav', 'rb') as f:
         #rf = pickle.load(f)
     #preds = rf.predict(data)
-return importances
+    print(importances)
+    return importances
 
 # In[ ]:
 
 
-
+predict()
 
 
 # In[ ]:

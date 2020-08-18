@@ -68,14 +68,33 @@ def happyreport():
     return jsonify(happy_rpt) 
 
 @app.route("/predict-happiness")
-def predict():
+def predict_hp():
+
+    #Column names for table in prediction
+    columns_data = ['Predictors','Gini-Importance' ]
+
+    #Query table 
+    cur.execute("select index, CAST(\"Gini-importance\" AS DECIMAL(5,4)) gini_importance from forest_importance order by CAST(\"Gini-importance\" AS DECIMAL(5,4)) desc;")
+    predictor = cur.fetchall()
+
+    #Column names for table in prediction
+    #columns_data2 = ['R-Square' ]
+
+    #Query table 
+    #cur.execute("select CAST(\"0\" AS DECIMAL(6,5)) r_square from model_score;")
+    #r_square = cur.fetchall()
+
+    #cur.execute("select CAST(\"0\" AS DECIMAL(6,5)) r_square from model_score;") 
+    #columns = [col[0] for col in cur.description]
+    #r_square = [dict(zip(columns, row)) for row in cur.fetchall()]
     
-    return render_template("predict-happiness.html")
+    return render_template("predict-happiness.html",predictor=predictor, columns=columns_data)
 
 @app.route("/predict")
 def predict():
-    data = model_randomforest.predict()
-    return redirect("/", code=302)
+    data = model_randomforest.predict()    
+ 
+    return redirect("/predict-happiness", code=302)
 
 
 

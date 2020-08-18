@@ -61,7 +61,7 @@
               
           <div>
                 
-           <p class="card-text text-justify" style="padding-left: 2%;">
+           <p class="lead text-justify" style="padding-left: 2%;">
               The Happiness Prediction models takes user selected socio-economic indicators as predictors and runs 
             predictive models (Random Forest and SVN) to determine their relative importance in predicting happiness.</p>           
             
@@ -186,42 +186,55 @@
         
         <!--End of first box-->
         </div>
+
+
         
         <!--End of first column-->
         </div>
 
         <!--Second Column in this Row-->
       <div class="col-md-3">
-        <button type="button" class="btn btn-primary btn-lg btn-block">Run Predictive Model</button>
+        <!--button type="button" class="btn btn-primary btn-lg btn-block">Run Predictive Model</button-->
+        <p><a class="btn btn-primary btn-lg btn-lg btn-block" href="/predict" role="button">Run Predictive Model</a></p>
+
+        <!--div class="col-sm-4"-->
+          <div class="box box-solid bg-light-blue">
+          <div class="box-body">
+          <h4>
+          <div id="RMSE" class="shiny-text-output shiny-bound-output">Model Quality: Rsqr =  &amp; RMSE = </div>
+          </h4>
+          </div>
+          </div>
+          <!--/div-->
+
+        <!--Table summarizing predictorsstats-->
+        <div class="table-responsive col-lg-12 col-md-12 col-sm-12 col-xs-12">
+           
+          <table class="table table-striped">
+            
+            <thead class="thead-light">
+              <tr style="text-align: left;">
+             {% for column in columns %}
+                <th>{{ column }}</th>
+             {% endfor %}
+            </thead>
+          </tr>
+            
+            <tbody>
+              {% for item in predictor %}
+              <TR>
+                 
+                 <TD >{{item[0]}}</TD>
+                 <TD >{{item[1]}}</TD>
+              </TR>
+              {% endfor %}
+            </tbody>
+            </table>
+      
+          </div>
       </div>
 
     
-     <!--Create a dropdown menu for user to select a neighborhood & return form input to the app-->
-     <!--div class="col-md-3">
-        <div class="box div-box">  
-        <h5 class="text-info font-weight-bold text-center"><i class='fas fa-chart-line' style='color:#00acc1'></i> Learn more about your Neighborhood</h5>
-        <hr class="my-4">    
-          <div class="row" class="mx-auto" >
-           
-          <form name="neighborhood" action="/" method="POST">
-
-            <select name="neighborhood" method="GET" action="/" style="margin-left: 7%">
-              <option value="{{neighborhood[0].name}}" selected>{{neighborhood[0].name}}</option>
-              {% for n in neighborhood[1:]: %}
-                <option value="{{n.name}}">{{n.name}}</option>
-              {% endfor %}
-
-            </select>
-            <br><br>
-            <p id="submission"><button type="Submit" style="margin-left: 20%">Search</button></p>
-            </form>
-
-            </div> 
-        <End of second box>
-        </div>
-      <End of second column> 
-      </div--> 
-
     
     <!--End of row-->
     </div>
