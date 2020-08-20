@@ -166,8 +166,8 @@ def predict(predictor_list):
     for feature, importance in zip(data.columns, rf.feature_importances_):
         feats[feature] = importance #add the name/value pair 
 
-    importances = pd.DataFrame.from_dict(feats, orient='index').rename(columns={0: 'Gini-importance'})
-    importances=importances.sort_values(by='Gini-importance', ascending=False)
+    importances = pd.DataFrame.from_dict(feats, orient='index').rename(columns={0: 'Feature-importance'})
+    importances=importances.sort_values(by='Feature-importance', ascending=False)
     #importances=importances.sort_values(by='Gini-importance').plot(kind='bar')
     # Save the figure
     #plt.savefig("rf-graph.png")
@@ -177,10 +177,10 @@ def predict(predictor_list):
 
     importances_df=importances.reset_index()
 
-    importances_df.columns = ['Predictors', 'Gini-importance']
+    importances_df.columns = ['Predictors', 'Feature-importance']
 
     # Save html code 
-    importances_html=importances_df.to_html(classes='table table-striped',header=['Predictors', 'Gini-importance'],index=False,justify='unset')
+    importances_html=importances_df.to_html(classes='table table-striped',header=['Predictors', 'Feature Importance'],index=False,justify='unset')
 
     #Save MARS fact html string
 
