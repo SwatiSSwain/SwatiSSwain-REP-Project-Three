@@ -14,25 +14,47 @@ import os
 
 # SQL Alchemy
 from sqlalchemy import create_engine
+import sqlalchemy
+import psycopg2
 
 # In[3]:
 
+from urllib.parse import urlparse
+
+os.environ["DATABASE_URL"] = "postgres://sxwlsbsllohawb:4723d0dab89d2da6bf1aae12930fd6865874a185e4e4dca60e5af580ccd1a185@ec2-52-200-48-116.compute-1.amazonaws.com:5432/d7shhrp5hdjs4d"
+
+if "DATABASE_URL" in os.environ :
+    url = urlparse(os.environ.get('DATABASE_URL'))
+    db = "dbname=%s user=%s password=%s host=%s " % (url.path[1:], url.username, url.password, url.hostname)
+    schema = "schema.sql"
+    conn = psycopg2.connect(db)
+    #cur = conn.cursor()
+else: 
+    conn = psycopg2.connect(host="localhost", port = 5432, database="world_happiness")
+
+cur = conn.cursor()
+
 
 # Create Engine for employee db
-engine = create_engine('postgres://sxwlsbsllohawb:4723d0dab89d2da6bf1aae12930fd6865874a185e4e4dca60e5af580ccd1a185@ec2-52-200-48-116.compute-1.amazonaws.com:5432/d7shhrp5hdjs4d')
+#engine = create_engine('postgres://sxwlsbsllohawb:4723d0dab89d2da6bf1aae12930fd6865874a185e4e4dca60e5af580ccd1a185@ec2-52-200-48-116.compute-1.amazonaws.com:5432/d7shhrp5hdjs4d')
 #engine = create_engine('postgresql://swain:db@localhost:5432/world_happiness')
-connection = engine.connect()
+#connection = engine.connect()
 
 
 # In[4]:
 
-def predict():
+#Dictionary to store all scrape data
+collect_data = {}
+
+def predict(predictor_list):
     
-    indicators_df = pd.read_sql("select * from happiness_indicators_final", connection)
+    #indicators_df = pd.read_sql("select * from happiness_indicators_final WHERE indicatorname in  %s;", ((predictor_list),), connection)
+    #print(predictor_list)
+    cur.execute("select * from happiness_indicators_final WHERE indicatorname in  %s;", ((predictor_list),))
+    indicators_df = cur.fetchall()
+    indicators_df=pd.DataFrame(indicators_df,columns = ['countryname' , 'indicatorname', 'value', 'target_groups'])
                                 
-    indicators_df.head() 
-
-
+  
 # In[5]:
 
 
@@ -60,7 +82,10 @@ def predict():
     # In[9]:
 
 
-    target_groups_df = pd.read_sql("SELECT distinct countryname,target_groups  from happiness_indicators_final", connection)
+    #target_groups_df = pd.read_sql("SELECT distinct countryname,target_groups  from happiness_indicators_final", connection)
+    cur.execute("SELECT distinct countryname,target_groups  from happiness_indicators_final WHERE indicatorname in  %s;", ((predictor_list),))
+    target_groups_df = cur.fetchall()
+    target_groups_df=pd.DataFrame(target_groups_df,columns = ['countryname' ,  'target_groups'])
                                 
     target_groups_df.head() 
 
@@ -74,11 +99,6 @@ def predict():
                     ,how="inner")
 
 
-    # In[11]:
-
-
-    merged_df.head()
-
 
     # In[12]:
 
@@ -90,7 +110,10 @@ def predict():
     # In[13]:
 
 
-    target_names = pd.read_sql("SELECT distinct target_groups  from happiness_indicators_final", connection)
+    #target_names = pd.read_sql("SELECT distinct target_groups  from happiness_indicators_final", connection)
+    cur.execute("SELECT distinct target_groups  from happiness_indicators_final WHERE indicatorname in  %s;", ((predictor_list),))
+    target_names = cur.fetchall()
+    target_names=pd.DataFrame(target_names,columns = ['target_groups'])
     target_names
 
 
@@ -104,14 +127,6 @@ def predict():
 
 
     feature_names = data.columns
-    data.head()
-
-
-    # In[16]:
-
-
-    data.count()
-
 
     # In[17]:
 
@@ -152,18 +167,24 @@ def predict():
         feats[feature] = importance #add the name/value pair 
 
     importances = pd.DataFrame.from_dict(feats, orient='index').rename(columns={0: 'Gini-importance'})
-    importances.sort_values(by='Gini-importance').plot(kind='bar')#, rot=45)
+    importances=importances.sort_values(by='Gini-importance', ascending=False)
+    #importances=importances.sort_values(by='Gini-importance').plot(kind='bar')
     # Save the figure
-    plt.savefig("rf-graph.png")
+    #plt.savefig("rf-graph.png")
     #plt.show()
 
 
-    # In[22]:
 
+    importances_df=importances.reset_index()
 
+    importances_df.columns = ['Predictors', 'Gini-importance']
 
-    #append data to Postgres existing table
-    importances.to_sql('forest_importance', engine,if_exists='replace')
+    # Save html code 
+    importances_html=importances_df.to_html(classes='table table-striped',header=['Predictors', 'Gini-importance'],index=False,justify='unset')
+
+    #Save MARS fact html string
+
+    collect_data['importances_html'] = importances_html
 
 
     # In[30]:
@@ -171,16 +192,45 @@ def predict():
 
     model_score = rf.score(X_test, y_test)
     model_score_df = pd.Series(model_score)
+    #Dictionary to store all scrape data
+    collect_data['model_score'] = model_score
+
+    #Logistic Regression
+    # Scale your data
+    # Import dependencies
+    from sklearn.preprocessing import LabelEncoder, MinMaxScaler,StandardScaler
+    #from tensorflow.keras.utils import to_categorical
+    #from tensorflow import keras
+
+    # scale the data
+    X_scaler =  MinMaxScaler().fit(X_train)
+    X_train_scaled = X_scaler.transform(X_train)
+    X_test_scaled = X_scaler.transform(X_test)
+
+    # Label-encode data set
+    label_encoder = LabelEncoder()
+    label_encoder.fit(y_train.values.ravel())
+    encoded_y_train = label_encoder.transform(y_train.values.ravel())
+    encoded_y_test = label_encoder.transform(y_test.values.ravel())
+
+    # Create a logistic regression model
+    from sklearn.linear_model import LogisticRegression
+    model = LogisticRegression(solver='lbfgs',class_weight='balanced', max_iter=10000)
+    model.fit(X_train_scaled, encoded_y_train)
+
+    predictions = model.predict(X_test_scaled)
+
+    # Calculate classification report
+    from sklearn.metrics import classification_report
+    clf_report = classification_report(encoded_y_test, predictions,
+                                   target_names = target_names['target_groups'].values.tolist(),
+                                   output_dict=True
+                                   )
+
+    clf_report=pd.DataFrame(clf_report)
+    collect_data['clf_report'] = clf_report
 
 
-    # In[31]:
-
-
-    #append data to Postgres existing table
-    model_score_df.to_sql('model_score', engine,if_exists='replace')
-
-
-    # In[23]:
 
 
     #from graphviz import Source
@@ -188,28 +238,14 @@ def predict():
     #Source(tree.export_graphviz(rf, out_file=None, feature_names=data.columns))
 
 
-    # In[24]:
-
-
-    #import pickle
-    #with open('rf-model.sav', 'wb') as f:
-        #pickle.dump(rf, f)
-
-
-    # In[25]:
-
-
-    # in your prediction file   
-    #with open('rf-model.sav', 'rb') as f:
-        #rf = pickle.load(f)
-    #preds = rf.predict(data)
-    print(importances)
-    return importances
+   
+    #print(importances)
+    return collect_data
 
 # In[ ]:
 
 
-predict()
+#predict()
 
 
 # In[ ]:

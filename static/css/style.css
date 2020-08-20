@@ -4,7 +4,7 @@ body {
   width: 100%;
   height: 100%;
   min-height: 100%;
-  background: #eceff1; 
+  margin: auto;
   
 }
 
@@ -20,6 +20,7 @@ img.two {
 
 .navbar {
 	margin:0 !important;
+	margin-bottom:0 !important;
 	padding: 0px 4% !important;
         }
 
@@ -28,15 +29,15 @@ img.two {
 }
 .navbar-nav .nav-item.active .nav-link,
 .navbar-nav .nav-item:hover .nav-link {
-    background-color: #757575;
+    background-color: #9c27b0;
 }
 
 .div-box {
   
-  padding-top: 7%;
-  padding-right: 6%;
-  padding-bottom: 7%;
-  padding-left: 6%;
+  padding-top: 1%;
+  padding-right: 1%;
+  padding-bottom: 1%;
+  padding-left: 1%;
   height: auto;
   color: black;
   background: white;
@@ -72,7 +73,7 @@ img.imageAnchor {
     position: fixed; 
     bottom: 0; 
     width: 100%; 
-    border-top: 5px solid #00acc1;
+    border-top: 5px solid #9c27b0;
 }
 
 #submission {
@@ -134,3 +135,10 @@ legend {
   
   color: cyan;
 }
+
+img {
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+

@@ -13,13 +13,33 @@
   <!--link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/journal/bootstrap.min.css" rel="stylesheet" integrity="sha384-vjBZc/DqIqR687k5rf6bUQ6IVSOxQUi9TcwtvULstA7+YGi//g3oT2qkh8W1Drx9" crossorigin="anonymous"-->
   <!--link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/journal/bootstrap.min.css" rel="stylesheet" integrity="sha384-vjBZc/DqIqR687k5rf6bUQ6IVSOxQUi9TcwtvULstA7+YGi//g3oT2qkh8W1Drx9" crossorigin="anonymous"-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/pulse/bootstrap.min.css" integrity="sha384-L7+YG8QLqGvxQGffJ6utDKFwmGwtLcCjtwvonVZR/Ba2VzhpMwBz51GaXnUsuYbj" crossorigin="anonymous">
+
+  <script type="text/javascript">
+    function selectAll(){
+      var items=document.getElementsByName('predictor');
+      for(var i=0; i<items.length; i++){
+        if(items[i].type=='checkbox')
+          items[i].checked=true;
+      }
+    }
+    
+    function UnSelectAll(){
+      var items=document.getElementsByName('predictor');
+      for(var i=0; i<items.length; i++){
+        if(items[i].type=='checkbox')
+          items[i].checked=false;
+      }
+    }			
+  </script>
+
+  
 </head>
 <body>
 
   <!--Adding Nav Bar-->
   <!--Adding Latitude as Home screen link-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="/" ><div class="p-2  bg-success text-white">PH</div></a>
+    <a class="navbar-brand" href="/" ><div class="p-2  bg-secondary text-black">PH</div></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -30,16 +50,19 @@
         <ul class = "navbar-nav ml-auto navbar-right">
               
               <li class="nav-item">
-                <a class="nav-link" href="/geojson">World Happiness Map</a>
+                <a class="nav-link" href="/happiness-map">World Happiness Map</a>
             </li>
               <li class="nav-item">
                   <a class="nav-link" href="/predict-happiness">Predict Happiness</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/cluster">Happiness Indicators</a>
+                <a class="nav-link" href="/model-in-action">Model in Action</a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/happiness-indicators">Happiness Indicators</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/cluster">Happiness Deep Dive</a>
+              <a class="nav-link" href="/country_plots">Happiness Deep Dive</a>
           </li>
               <li class="nav-item">
                   <a class="nav-link" href="/inference">Inference</a>
@@ -53,33 +76,52 @@
   <div class="container-fluid  p-5"  >
     <div class="row" class="mx-auto">
 
+      
+
+        <!--div class="text-center"-->
+          <div class="img-container">
+        <img src="..\static\img\hp-predict-1.jpg" class="img-fluid center" class="rounded" class="img-thumbnail" style='width:80%'; alt="Responsive image">
+      </div>
+              
       <!--First Column in this Row-->
       <div class="col-md-12">
-        <div class="box div-box">       
-        <h4 class="text-info font-weight-bold">Happiness Prediction Model</h4>
-        <hr class="my-4">  
+         <hr class="my-4">  
               
           <div>
                 
-           <p class="lead text-justify" style="padding-left: 2%;">
+           <h5><p class="mb-0 text-justify" style="padding-left: 2%;">
               The Happiness Prediction models takes user selected socio-economic indicators as predictors and runs 
-            predictive models (Random Forest and SVN) to determine their relative importance in predicting happiness.</p>           
-            
+            predictive models (Random Forest and Logistic Regression) to determine their relative importance in predicting happiness.</p>   
+          </h5>        
+            <br>
           </div> 
+          
         </div>
-      </div>
 
-          <div class="col-md-8 mb-3">
+        <div class="col-md-5 mb-3 text-center">
           <div class="box div-box">
+
+            <form action='/predict' method='POST' id='submitform'>
+
+              <button type="Submit" class="btn btn-primary btn-lg">Run Predictive Model</button>
+              <br>
+              <br>
+          
           <fieldset>
             
-            <div class="card border-secondary mb-3" style="max-width: 45rem;">
+            <div class="card border-secondary mb-3 text-left" >
               <div class="card-header"><legend>Select your predictors</legend></div>
               <div class="card-body">
 
             <div class="form-group">
-              <button id="selectall" type="button" class="btn btn-default action-button shiny-bound-input">Select All/Deselect All</button>
-            <div class="custom-control custom-radio">
+              <!--button id="selectall" type="button" class="btn btn-default action-button shiny-bound-input">Select All/Deselect All</button-->
+               
+              <input type="button" class="btn btn-outline-primary text-center" onclick='selectAll()' value="Select All"/>
+              
+              <input type="button" class="btn btn-outline-primary text-center" onclick='UnSelectAll()' value="Unselect All"/>
+              <br><br>
+    
+              <div class="custom-control custom-radio">
               <input type="checkbox" id="Birth rate, crude (per 1,000 people)" name="predictor" value="Birth rate, crude (per 1,000 people)" checked>
               <label for="Birth rate, crude (per 1,000 people)">Birth rate, crude (per 1,000 people)</label>
             </div>
@@ -182,7 +224,7 @@
           </div>
         
         </div></div>
-          </fieldset>   
+          </fieldset>
         
         <!--End of first box-->
         </div>
@@ -192,49 +234,49 @@
         <!--End of first column-->
         </div>
 
-        <!--Second Column in this Row-->
-      <div class="col-md-3">
-        <!--button type="button" class="btn btn-primary btn-lg btn-block">Run Predictive Model</button-->
-        <p><a class="btn btn-primary btn-lg btn-lg btn-block" href="/predict" role="button">Run Predictive Model</a></p>
+    
+        
+        <!--p><a class="btn btn-primary btn-lg btn-lg btn-block" href="/predict" role="button">Run Predictive Model</a></p-->
+        
+
+      </form>
+          <!--Second Column in this Row-->
+          <div class="col-md-7">
+            <div class="box div-box"> 
 
         <!--div class="col-sm-4"-->
-          <div class="box box-solid bg-light-blue">
-          <div class="box-body">
-          <h4>
-          <div id="RMSE" class="shiny-text-output shiny-bound-output">Model Quality: Rsqr =  &amp; RMSE = </div>
-          </h4>
-          </div>
+       
+
+          <div class="card border-primary mb-3" >
+            <div class="card-header"><h5>Random Forest Model Score: Rsqr = {{model_score}}</h5></div>
+            <div class="card-body">
+              <h4 class="card-title">List of Predictors:</h4>
+              <p class="card-text text-justify">{{predictor_list}}</p>
+            </div>
           </div>
           <!--/div-->
 
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active text-center"><h4>Logistic Regression - Classification Report</h4></li>
+          </ol>
+          <br>
+          <img src="data:image/png;base64, {{ plot_url }}">
+
         <!--Table summarizing predictorsstats-->
-        <div class="table-responsive col-lg-12 col-md-12 col-sm-12 col-xs-12">
-           
-          <table class="table table-striped">
-            
-            <thead class="thead-light">
-              <tr style="text-align: left;">
-             {% for column in columns %}
-                <th>{{ column }}</th>
-             {% endfor %}
-            </thead>
-          </tr>
-            
-            <tbody>
-              {% for item in predictor %}
-              <TR>
-                 
-                 <TD >{{item[0]}}</TD>
-                 <TD >{{item[1]}}</TD>
-              </TR>
-              {% endfor %}
-            </tbody>
-            </table>
+        
+        
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active text-center"><h4>Relative Importances of Predictors from Random Forest model</h4></li>
+        </ol>
+        
+        <div class="table-responsive col-lg-12 col-md-12 col-sm-12 col-xs-12">   
+
+          {{ predictor|safe}}
       
           </div>
       </div>
 
-    
+    </div>
     
     <!--End of row-->
     </div>
@@ -250,9 +292,7 @@
 
   <!-- End of Footer -->
 
-  <script>$(".selectall").on("click", function() {
-    $(".predictor").prop("checked", $(this).prop("checked"));
-});</script>
+
 
 <!--script src="../static/js/neighborhood-force.js"></script-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
