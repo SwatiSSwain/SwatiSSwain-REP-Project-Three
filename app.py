@@ -60,7 +60,7 @@ def echo():
 
 @app.route("/api/happiness-indicators")
 def happinessindicators():
-    cur.execute("select * from happiness_indicators_final") 
+    cur.execute("SELECT countryname, indicatorname, cast(value as varchar(255) ) as value, target_groups FROM public.happiness_indicators_final;") 
     columns = [col[0] for col in cur.description]
     happiness_ind = [dict(zip(columns, row)) for row in cur.fetchall()]
     return jsonify(happiness_ind) 
@@ -69,7 +69,7 @@ def happinessindicators():
 
 @app.route("/api/happy-report")
 def happyreport():
-    cur.execute("select * from happiness_report;") 
+    cur.execute("SELECT country, cast(happiness_score_2015 as varchar(50)) as happiness_score_2015, happiness_rank_2015, cast(happiness_score_2016  as varchar(50)) as happiness_score_2016, happiness_rank_2016, cast(happiness_score_2017  as varchar(50)) as happiness_score_2017, happiness_rank_2017, cast(happiness_score_2018  as varchar(50)) as happiness_score_2018, happiness_rank_2018, cast(happiness_score_2019  as varchar(50)) as happiness_score_2019, happiness_rank_2019 FROM public.happiness_report;") 
     columns = [col[0] for col in cur.description]
     happy_rpt = [dict(zip(columns, row)) for row in cur.fetchall()]
     return jsonify(happy_rpt) 
