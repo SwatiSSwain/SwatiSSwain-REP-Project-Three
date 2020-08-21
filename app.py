@@ -103,26 +103,28 @@ def predict_hp():
 def predict():
     if request.method == "POST":
         predictor_list = request.form.getlist('predictor')
-        predictor_list = tuple(predictor_list)
+
+        if(predictor_list):
+            predictor_list = tuple(predictor_list)
         
-        data = model_randomforest.predict(predictor_list)
-        predictor=data['importances_html']
-        model_score=data['model_score']
+            data = model_randomforest.predict(predictor_list)
+            predictor=data['importances_html']
+            model_score=data['model_score']
         
 
-        img = BytesIO()
-        clf_report=data['clf_report']
-        sns_plot=sns.heatmap(clf_report.iloc[:-1, :].T, annot=True)
-        plt.subplots_adjust(left=0.28)
-        sns_plot.figure.savefig(img, format='png')
+            img = BytesIO()
+            clf_report=data['clf_report']
+            sns_plot=sns.heatmap(clf_report.iloc[:-1, :].T, annot=True)
+            plt.subplots_adjust(left=0.28)
+            sns_plot.figure.savefig(img, format='png')
         
-        plt.close()
-        img.seek(0)
+            plt.close()
+            img.seek(0)
 
-        plot_url = base64.b64encode(img.getvalue()).decode('utf8')
-        print(plot_url)
+            plot_url = base64.b64encode(img.getvalue()).decode('utf8')
+            print(plot_url)
         #return render_template('predict-happiness-copy.html',  predictor=[data.to_html(classes='table table-striped',header=['Predictors','Gini-importance'],index=True,border='', justify='unset')], columns=data.columns.values)
-        return render_template('predict-happiness.html',  predictor=predictor, model_score=model_score,predictor_list=predictor_list, plot_url=plot_url)
+            return render_template('predict-happiness.html',  predictor=predictor, model_score=model_score,predictor_list=predictor_list, plot_url=plot_url)
         
       
     #data = model_randomforest.predict()    
