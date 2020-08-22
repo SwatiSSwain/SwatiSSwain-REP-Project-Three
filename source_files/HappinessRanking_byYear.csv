@@ -1,0 +1,783 @@
+Country,Happiness Rank,year
+Switzerland,1,2015
+Iceland,2,2015
+Denmark,3,2015
+Norway,4,2015
+Canada,5,2015
+Finland,6,2015
+Netherlands,7,2015
+Sweden,8,2015
+New Zealand,9,2015
+Australia,10,2015
+Israel,11,2015
+Costa Rica,12,2015
+Austria,13,2015
+Mexico,14,2015
+United States,15,2015
+Brazil,16,2015
+Luxembourg,17,2015
+Ireland,18,2015
+Belgium,19,2015
+United Arab Emirates,20,2015
+United Kingdom,21,2015
+Oman,22,2015
+Venezuela,23,2015
+Singapore,24,2015
+Panama,25,2015
+Germany,26,2015
+Chile,27,2015
+Qatar,28,2015
+France,29,2015
+Argentina,30,2015
+Czech Republic,31,2015
+Uruguay,32,2015
+Colombia,33,2015
+Thailand,34,2015
+Saudi Arabia,35,2015
+Spain,36,2015
+Malta,37,2015
+Taiwan,38,2015
+Kuwait,39,2015
+Suriname,40,2015
+Trinidad and Tobago,41,2015
+El Salvador,42,2015
+Guatemala,43,2015
+Uzbekistan,44,2015
+Slovakia,45,2015
+Japan,46,2015
+South Korea,47,2015
+Ecuador,48,2015
+Bahrain,49,2015
+Italy,50,2015
+Bolivia,51,2015
+Moldova,52,2015
+Paraguay,53,2015
+Kazakhstan,54,2015
+Slovenia,55,2015
+Lithuania,56,2015
+Nicaragua,57,2015
+Peru,58,2015
+Belarus,59,2015
+Poland,60,2015
+Malaysia,61,2015
+Croatia,62,2015
+Libya,63,2015
+Russia,64,2015
+Jamaica,65,2015
+North Cyprus,66,2015
+Cyprus,67,2015
+Algeria,68,2015
+Kosovo,69,2015
+Turkmenistan,70,2015
+Mauritius,71,2015
+Hong Kong,72,2015
+Estonia,73,2015
+Indonesia,74,2015
+Vietnam,75,2015
+Turkey,76,2015
+Kyrgyzstan,77,2015
+Nigeria,78,2015
+Bhutan,79,2015
+Azerbaijan,80,2015
+Pakistan,81,2015
+Jordan,82,2015
+Montenegro,82,2015
+China,84,2015
+Zambia,85,2015
+Romania,86,2015
+Serbia,87,2015
+Portugal,88,2015
+Latvia,89,2015
+Philippines,90,2015
+Somaliland region,91,2015
+Morocco,92,2015
+Macedonia,93,2015
+Mozambique,94,2015
+Albania,95,2015
+Bosnia and Herzegovina,96,2015
+Lesotho,97,2015
+Dominican Republic,98,2015
+Laos,99,2015
+Mongolia,100,2015
+Swaziland,101,2015
+Greece,102,2015
+Lebanon,103,2015
+Hungary,104,2015
+Honduras,105,2015
+Tajikistan,106,2015
+Tunisia,107,2015
+Palestinian Territories,108,2015
+Bangladesh,109,2015
+Iran,110,2015
+Ukraine,111,2015
+Iraq,112,2015
+South Africa,113,2015
+Ghana,114,2015
+Zimbabwe,115,2015
+Liberia,116,2015
+India,117,2015
+Sudan,118,2015
+Haiti,119,2015
+Congo (Kinshasa),120,2015
+Nepal,121,2015
+Ethiopia,122,2015
+Sierra Leone,123,2015
+Mauritania,124,2015
+Kenya,125,2015
+Djibouti,126,2015
+Armenia,127,2015
+Botswana,128,2015
+Myanmar,129,2015
+Georgia,130,2015
+Malawi,131,2015
+Sri Lanka,132,2015
+Cameroon,133,2015
+Bulgaria,134,2015
+Egypt,135,2015
+Yemen,136,2015
+Angola,137,2015
+Mali,138,2015
+Congo (Brazzaville),139,2015
+Comoros,140,2015
+Uganda,141,2015
+Senegal,142,2015
+Gabon,143,2015
+Niger,144,2015
+Cambodia,145,2015
+Tanzania,146,2015
+Madagascar,147,2015
+Central African Republic,148,2015
+Chad,149,2015
+Guinea,150,2015
+Ivory Coast,151,2015
+Burkina Faso,152,2015
+Afghanistan,153,2015
+Rwanda,154,2015
+Benin,155,2015
+Syria,156,2015
+Burundi,157,2015
+Togo,158,2015
+Denmark,1,2016
+Switzerland,2,2016
+Iceland,3,2016
+Norway,4,2016
+Finland,5,2016
+Canada,6,2016
+Netherlands,7,2016
+New Zealand,8,2016
+Australia,9,2016
+Sweden,10,2016
+Israel,11,2016
+Austria,12,2016
+United States,13,2016
+Costa Rica,14,2016
+Puerto Rico,15,2016
+Germany,16,2016
+Brazil,17,2016
+Belgium,18,2016
+Ireland,19,2016
+Luxembourg,20,2016
+Mexico,21,2016
+Singapore,22,2016
+United Kingdom,23,2016
+Chile,24,2016
+Panama,25,2016
+Argentina,26,2016
+Czech Republic,27,2016
+United Arab Emirates,28,2016
+Uruguay,29,2016
+Malta,30,2016
+Colombia,31,2016
+France,32,2016
+Thailand,33,2016
+Saudi Arabia,34,2016
+Taiwan,34,2016
+Qatar,36,2016
+Spain,37,2016
+Algeria,38,2016
+Guatemala,39,2016
+Suriname,40,2016
+Kuwait,41,2016
+Bahrain,42,2016
+Trinidad and Tobago,43,2016
+Venezuela,44,2016
+Slovakia,45,2016
+El Salvador,46,2016
+Malaysia,47,2016
+Nicaragua,48,2016
+Uzbekistan,49,2016
+Italy,50,2016
+Ecuador,51,2016
+Belize,52,2016
+Japan,53,2016
+Kazakhstan,54,2016
+Moldova,55,2016
+Russia,56,2016
+Poland,57,2016
+South Korea,57,2016
+Bolivia,59,2016
+Lithuania,60,2016
+Belarus,61,2016
+North Cyprus,62,2016
+Slovenia,63,2016
+Peru,64,2016
+Turkmenistan,65,2016
+Mauritius,66,2016
+Libya,67,2016
+Latvia,68,2016
+Cyprus,69,2016
+Paraguay,70,2016
+Romania,71,2016
+Estonia,72,2016
+Jamaica,73,2016
+Croatia,74,2016
+Hong Kong,75,2016
+Somalia,76,2016
+Kosovo,77,2016
+Turkey,78,2016
+Indonesia,79,2016
+Jordan,80,2016
+Azerbaijan,81,2016
+Philippines,82,2016
+China,83,2016
+Bhutan,84,2016
+Kyrgyzstan,85,2016
+Serbia,86,2016
+Bosnia and Herzegovina,87,2016
+Montenegro,88,2016
+Dominican Republic,89,2016
+Morocco,90,2016
+Hungary,91,2016
+Pakistan,92,2016
+Lebanon,93,2016
+Portugal,94,2016
+Macedonia,95,2016
+Vietnam,96,2016
+Somaliland Region,97,2016
+Tunisia,98,2016
+Greece,99,2016
+Tajikistan,100,2016
+Mongolia,101,2016
+Laos,102,2016
+Nigeria,103,2016
+Honduras,104,2016
+Iran,105,2016
+Zambia,106,2016
+Nepal,107,2016
+Palestinian Territories,108,2016
+Albania,109,2016
+Bangladesh,110,2016
+Sierra Leone,111,2016
+Iraq,112,2016
+Namibia,113,2016
+Cameroon,114,2016
+Ethiopia,115,2016
+South Africa,116,2016
+Sri Lanka,117,2016
+India,118,2016
+Myanmar,119,2016
+Egypt,120,2016
+Armenia,121,2016
+Kenya,122,2016
+Ukraine,123,2016
+Ghana,124,2016
+Congo (Kinshasa),125,2016
+Georgia,126,2016
+Congo (Brazzaville),127,2016
+Senegal,128,2016
+Bulgaria,129,2016
+Mauritania,130,2016
+Zimbabwe,131,2016
+Malawi,132,2016
+Sudan,133,2016
+Gabon,134,2016
+Mali,135,2016
+Haiti,136,2016
+Botswana,137,2016
+Comoros,138,2016
+Ivory Coast,139,2016
+Cambodia,140,2016
+Angola,141,2016
+Niger,142,2016
+South Sudan,143,2016
+Chad,144,2016
+Burkina Faso,145,2016
+Uganda,145,2016
+Yemen,147,2016
+Madagascar,148,2016
+Tanzania,149,2016
+Liberia,150,2016
+Guinea,151,2016
+Rwanda,152,2016
+Benin,153,2016
+Afghanistan,154,2016
+Togo,155,2016
+Syria,156,2016
+Burundi,157,2016
+Norway,1,2017
+Denmark,2,2017
+Iceland,3,2017
+Switzerland,4,2017
+Finland,5,2017
+Netherlands,6,2017
+Canada,7,2017
+New Zealand,8,2017
+Sweden,9,2017
+Australia,10,2017
+Israel,11,2017
+Costa Rica,12,2017
+Austria,13,2017
+United States,14,2017
+Ireland,15,2017
+Germany,16,2017
+Belgium,17,2017
+Luxembourg,18,2017
+United Kingdom,19,2017
+Chile,20,2017
+United Arab Emirates,21,2017
+Brazil,22,2017
+Czech Republic,23,2017
+Argentina,24,2017
+Mexico,25,2017
+Singapore,26,2017
+Malta,27,2017
+Uruguay,28,2017
+Guatemala,29,2017
+Panama,30,2017
+France,31,2017
+Thailand,32,2017
+Taiwan Province of China,33,2017
+Spain,34,2017
+Qatar,35,2017
+Colombia,36,2017
+Saudi Arabia,37,2017
+Trinidad and Tobago,38,2017
+Kuwait,39,2017
+Slovakia,40,2017
+Bahrain,41,2017
+Malaysia,42,2017
+Nicaragua,43,2017
+Ecuador,44,2017
+El Salvador,45,2017
+Poland,46,2017
+Uzbekistan,47,2017
+Italy,48,2017
+Russia,49,2017
+Belize,50,2017
+Japan,51,2017
+Lithuania,52,2017
+Algeria,53,2017
+Latvia,54,2017
+South Korea,55,2017
+Moldova,56,2017
+Romania,57,2017
+Bolivia,58,2017
+Turkmenistan,59,2017
+Kazakhstan,60,2017
+North Cyprus,61,2017
+Slovenia,62,2017
+Peru,63,2017
+Mauritius,64,2017
+Cyprus,65,2017
+Estonia,66,2017
+Belarus,67,2017
+Libya,68,2017
+Turkey,69,2017
+Paraguay,70,2017
+"Hong Kong S.A.R., China",71,2017
+Philippines,72,2017
+Serbia,73,2017
+Jordan,74,2017
+Hungary,75,2017
+Jamaica,76,2017
+Croatia,77,2017
+Kosovo,78,2017
+China,79,2017
+Pakistan,80,2017
+Indonesia,81,2017
+Venezuela,82,2017
+Montenegro,83,2017
+Morocco,84,2017
+Azerbaijan,85,2017
+Dominican Republic,86,2017
+Greece,87,2017
+Lebanon,88,2017
+Portugal,89,2017
+Bosnia and Herzegovina,90,2017
+Honduras,91,2017
+Macedonia,92,2017
+Somalia,93,2017
+Vietnam,94,2017
+Nigeria,95,2017
+Tajikistan,96,2017
+Bhutan,97,2017
+Kyrgyzstan,98,2017
+Nepal,99,2017
+Mongolia,100,2017
+South Africa,101,2017
+Tunisia,102,2017
+Palestinian Territories,103,2017
+Egypt,104,2017
+Bulgaria,105,2017
+Sierra Leone,106,2017
+Cameroon,107,2017
+Iran,108,2017
+Albania,109,2017
+Bangladesh,110,2017
+Namibia,111,2017
+Kenya,112,2017
+Mozambique,113,2017
+Myanmar,114,2017
+Senegal,115,2017
+Zambia,116,2017
+Iraq,117,2017
+Gabon,118,2017
+Ethiopia,119,2017
+Sri Lanka,120,2017
+Armenia,121,2017
+India,122,2017
+Mauritania,123,2017
+Congo (Brazzaville),124,2017
+Georgia,125,2017
+Congo (Kinshasa),126,2017
+Mali,127,2017
+Ivory Coast,128,2017
+Cambodia,129,2017
+Sudan,130,2017
+Ghana,131,2017
+Ukraine,132,2017
+Uganda,133,2017
+Burkina Faso,134,2017
+Niger,135,2017
+Malawi,136,2017
+Chad,137,2017
+Zimbabwe,138,2017
+Lesotho,139,2017
+Angola,140,2017
+Afghanistan,141,2017
+Botswana,142,2017
+Benin,143,2017
+Madagascar,144,2017
+Haiti,145,2017
+Yemen,146,2017
+South Sudan,147,2017
+Liberia,148,2017
+Guinea,149,2017
+Togo,150,2017
+Rwanda,151,2017
+Syria,152,2017
+Tanzania,153,2017
+Burundi,154,2017
+Central African Republic,155,2017
+Finland,1,2018
+Norway,2,2018
+Denmark,3,2018
+Iceland,4,2018
+Switzerland,5,2018
+Netherlands,6,2018
+Canada,7,2018
+New Zealand,8,2018
+Sweden,9,2018
+Australia,10,2018
+United Kingdom,11,2018
+Austria,12,2018
+Costa Rica,13,2018
+Ireland,14,2018
+Germany,15,2018
+Belgium,16,2018
+Luxembourg,17,2018
+United States,18,2018
+Israel,19,2018
+United Arab Emirates,20,2018
+Czech Republic,21,2018
+Malta,22,2018
+France,23,2018
+Mexico,24,2018
+Chile,25,2018
+Taiwan,26,2018
+Panama,27,2018
+Brazil,28,2018
+Argentina,29,2018
+Guatemala,30,2018
+Uruguay,31,2018
+Qatar,32,2018
+Saudi Arabia,33,2018
+Singapore,34,2018
+Malaysia,35,2018
+Spain,36,2018
+Colombia,37,2018
+Trinidad & Tobago,38,2018
+Slovakia,39,2018
+El Salvador,40,2018
+Nicaragua,41,2018
+Poland,42,2018
+Bahrain,43,2018
+Uzbekistan,44,2018
+Kuwait,45,2018
+Thailand,46,2018
+Italy,47,2018
+Ecuador,48,2018
+Belize,49,2018
+Lithuania,50,2018
+Slovenia,51,2018
+Romania,52,2018
+Latvia,53,2018
+Japan,54,2018
+Mauritius,55,2018
+Jamaica,56,2018
+South Korea,57,2018
+Northern Cyprus,58,2018
+Russia,59,2018
+Kazakhstan,60,2018
+Cyprus,61,2018
+Bolivia,62,2018
+Estonia,63,2018
+Paraguay,64,2018
+Peru,65,2018
+Kosovo,66,2018
+Moldova,67,2018
+Turkmenistan,68,2018
+Hungary,69,2018
+Libya,70,2018
+Philippines,71,2018
+Honduras,72,2018
+Belarus,73,2018
+Turkey,74,2018
+Pakistan,75,2018
+Hong Kong,76,2018
+Portugal,77,2018
+Serbia,78,2018
+Greece,79,2018
+Lebanon,80,2018
+Montenegro,81,2018
+Croatia,82,2018
+Dominican Republic,83,2018
+Algeria,84,2018
+Morocco,85,2018
+China,86,2018
+Azerbaijan,87,2018
+Tajikistan,88,2018
+Macedonia,89,2018
+Jordan,90,2018
+Nigeria,91,2018
+Kyrgyzstan,92,2018
+Bosnia and Herzegovina,93,2018
+Mongolia,94,2018
+Vietnam,95,2018
+Indonesia,96,2018
+Bhutan,97,2018
+Somalia,98,2018
+Cameroon,99,2018
+Bulgaria,100,2018
+Nepal,101,2018
+Venezuela,102,2018
+Gabon,103,2018
+Palestinian Territories,104,2018
+South Africa,105,2018
+Iran,106,2018
+Ivory Coast,107,2018
+Ghana,108,2018
+Senegal,109,2018
+Laos,110,2018
+Tunisia,111,2018
+Albania,112,2018
+Sierra Leone,113,2018
+Congo (Brazzaville),114,2018
+Bangladesh,115,2018
+Sri Lanka,116,2018
+Iraq,117,2018
+Mali,118,2018
+Namibia,119,2018
+Cambodia,120,2018
+Burkina Faso,121,2018
+Egypt,122,2018
+Mozambique,123,2018
+Kenya,124,2018
+Zambia,125,2018
+Mauritania,126,2018
+Ethiopia,127,2018
+Georgia,128,2018
+Armenia,129,2018
+Myanmar,130,2018
+Chad,131,2018
+Congo (Kinshasa),132,2018
+India,133,2018
+Niger,134,2018
+Uganda,135,2018
+Benin,136,2018
+Sudan,137,2018
+Ukraine,138,2018
+Togo,139,2018
+Guinea,140,2018
+Lesotho,141,2018
+Angola,142,2018
+Madagascar,143,2018
+Zimbabwe,144,2018
+Afghanistan,145,2018
+Botswana,146,2018
+Malawi,147,2018
+Haiti,148,2018
+Liberia,149,2018
+Syria,150,2018
+Rwanda,151,2018
+Yemen,152,2018
+Tanzania,153,2018
+South Sudan,154,2018
+Central African Republic,155,2018
+Burundi,156,2018
+Finland,1,2019
+Denmark,2,2019
+Norway,3,2019
+Iceland,4,2019
+Netherlands,5,2019
+Switzerland,6,2019
+Sweden,7,2019
+New Zealand,8,2019
+Canada,9,2019
+Austria,10,2019
+Australia,11,2019
+Costa Rica,12,2019
+Israel,13,2019
+Luxembourg,14,2019
+United Kingdom,15,2019
+Ireland,16,2019
+Germany,17,2019
+Belgium,18,2019
+United States,19,2019
+Czech Republic,20,2019
+United Arab Emirates,21,2019
+Malta,22,2019
+Mexico,23,2019
+France,24,2019
+Taiwan,25,2019
+Chile,26,2019
+Guatemala,27,2019
+Saudi Arabia,28,2019
+Qatar,29,2019
+Spain,30,2019
+Panama,31,2019
+Brazil,32,2019
+Uruguay,33,2019
+Singapore,34,2019
+El Salvador,35,2019
+Italy,36,2019
+Bahrain,37,2019
+Slovakia,38,2019
+Trinidad & Tobago,39,2019
+Poland,40,2019
+Uzbekistan,41,2019
+Lithuania,42,2019
+Colombia,43,2019
+Slovenia,44,2019
+Nicaragua,45,2019
+Kosovo,46,2019
+Argentina,47,2019
+Romania,48,2019
+Cyprus,49,2019
+Ecuador,50,2019
+Kuwait,51,2019
+Thailand,52,2019
+Latvia,53,2019
+South Korea,54,2019
+Estonia,55,2019
+Jamaica,56,2019
+Mauritius,57,2019
+Japan,58,2019
+Honduras,59,2019
+Kazakhstan,60,2019
+Bolivia,61,2019
+Hungary,62,2019
+Paraguay,63,2019
+Northern Cyprus,64,2019
+Peru,65,2019
+Portugal,66,2019
+Pakistan,67,2019
+Russia,68,2019
+Philippines,69,2019
+Serbia,70,2019
+Moldova,71,2019
+Libya,72,2019
+Montenegro,73,2019
+Tajikistan,74,2019
+Croatia,75,2019
+Hong Kong,76,2019
+Dominican Republic,77,2019
+Bosnia and Herzegovina,78,2019
+Turkey,79,2019
+Malaysia,80,2019
+Belarus,81,2019
+Greece,82,2019
+Mongolia,83,2019
+North Macedonia,84,2019
+Nigeria,85,2019
+Kyrgyzstan,86,2019
+Turkmenistan,87,2019
+Algeria,88,2019
+Morocco,89,2019
+Azerbaijan,90,2019
+Lebanon,91,2019
+Indonesia,92,2019
+China,93,2019
+Vietnam,94,2019
+Bhutan,95,2019
+Cameroon,96,2019
+Bulgaria,97,2019
+Ghana,98,2019
+Ivory Coast,99,2019
+Nepal,100,2019
+Jordan,101,2019
+Benin,102,2019
+Congo (Brazzaville),103,2019
+Gabon,104,2019
+Laos,105,2019
+South Africa,106,2019
+Albania,107,2019
+Venezuela,108,2019
+Cambodia,109,2019
+Palestinian Territories,110,2019
+Senegal,111,2019
+Somalia,112,2019
+Namibia,113,2019
+Niger,114,2019
+Burkina Faso,115,2019
+Armenia,116,2019
+Iran,117,2019
+Guinea,118,2019
+Georgia,119,2019
+Gambia,120,2019
+Kenya,121,2019
+Mauritania,122,2019
+Mozambique,123,2019
+Tunisia,124,2019
+Bangladesh,125,2019
+Iraq,126,2019
+Congo (Kinshasa),127,2019
+Mali,128,2019
+Sierra Leone,129,2019
+Sri Lanka,130,2019
+Myanmar,131,2019
+Chad,132,2019
+Ukraine,133,2019
+Ethiopia,134,2019
+Swaziland,135,2019
+Uganda,136,2019
+Egypt,137,2019
+Zambia,138,2019
+Togo,139,2019
+India,140,2019
+Liberia,141,2019
+Comoros,142,2019
+Madagascar,143,2019
+Lesotho,144,2019
+Burundi,145,2019
+Zimbabwe,146,2019
+Haiti,147,2019
+Botswana,148,2019
+Syria,149,2019
+Malawi,150,2019
+Yemen,151,2019
+Rwanda,152,2019
+Tanzania,153,2019
+Afghanistan,154,2019
+Central African Republic,155,2019
+South Sudan,156,2019
